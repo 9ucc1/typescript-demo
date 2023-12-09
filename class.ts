@@ -1,10 +1,15 @@
+import { Login, User } from './interface';
+
+import * as UserLogin from './interface'; 
+//alias
+
 interface Address {
     street: string;
     city: string;
     state: string;
 }
 
-class Employee{
+class Employee implements Login{
     //give type to each property
     #id: number;
     address: Address;
@@ -25,6 +30,9 @@ class Employee{
         this.address= address;
         this.#id = id;
         this.name = name;
+    }
+    login(): User {
+        return { name: "John", id: 1, email: ""}
     }
 
     getNameWithAddress() : string {
